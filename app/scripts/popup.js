@@ -104,14 +104,14 @@ $(function () {
 		$('body').removeClass('dimmer');
 	};
 
-	var showDeletePaasDialogError = function(msg){
+	var showDeletePaasDialogError = function (msg) {
 		var password = $('#delete-paas-dialog .password');
 		password.find('.error').html(msg);
 		password.addClass('deleting-error');
 		setTimeout(hideDeletePaasDialogError, 2000);
 	};
 
-	var hideDeletePaasDialogError = function(){
+	var hideDeletePaasDialogError = function () {
 		var password = $('#delete-paas-dialog .password');
 		password.removeClass('deleting-error');
 	};
@@ -126,9 +126,9 @@ $(function () {
 		if (action === 'remove') {
 			var deletePaas = function (password) {
 				CodingAPI.deletePaas(user, project, password, function (result) {
-					if(result.error){
+					if (result.error) {
 						showDeletePaasDialogError(result.message);
-					}else{
+					} else {
 						hideDeletePaasDialog();
 						loadPaasInfo(allProjects);
 					}
@@ -171,25 +171,33 @@ $(function () {
 	var showShareMsg = function (content, isError) {
 		var msg = $('#share .msg');
 		msg.addClass('active');
-		if(isError){
+		if (isError) {
 			msg.addClass('error');
 		}
-		msg.html(content);
+		var ctn = '';
+		if (typeof content === 'object') {
+			$.each(content, function (k, v) {
+				ctn += v + ' ';
+			});
+		} else {
+			ctn = content;
+		}
+		msg.html(ctn);
 		setTimeout(hideShareMsg, 2000);
 	};
 
-	var hideShareMsg = function(){
+	var hideShareMsg = function () {
 		var msg = $('#share .msg');
 		msg.removeClass('active error').html();
 	};
 
-	$('#share').on('click', '.share-button .button', function(){
+	$('#share').on('click', '.share-button .button', function () {
 		var textarea = $('textarea[name="share-content"]');
 		var content = textarea.val();
-		CodingAPI.share(content, function(result){
-			if(result.code){
+		CodingAPI.share(content, function (result) {
+			if (result.code) {
 				showShareMsg(result.msg || result.message, true);
-			}else{
+			} else {
 				showShareMsg('分享成功！', false);
 			}
 		});

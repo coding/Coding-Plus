@@ -290,8 +290,6 @@ body.dimmer:before {
     margin-left: -40%;
     background: rgba(19, 176, 79, 0.87);
     color: #FFFFFF;
-    border-bottom-left-radius: 3px;
-    border-bottom-right-radius: 3px;
     display: none;
 }
 
