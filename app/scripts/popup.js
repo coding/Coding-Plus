@@ -188,7 +188,7 @@ $(function () {
 		var content = textarea.val();
 		CodingAPI.share(content, function(result){
 			if(result.code){
-				showShareMsg(result.message, true);
+				showShareMsg(result.msg || result.message, true);
 			}else{
 				showShareMsg('分享成功！', false);
 			}

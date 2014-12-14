@@ -9,3 +9,4 @@ package
 dist.crx
 dist.pem
 .idea
+*.crx
