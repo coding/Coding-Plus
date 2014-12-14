@@ -1,0 +1,310 @@
+html, body {
+    padding: 0;
+    margin: 0;
+    width: 400px;
+    height: 500px;
+    font-family: '微软雅黑', 'Helvetica Neue', sans-serif, SimHei;
+    -webkit-font-smoothing: antialiased;
+    position: relative;
+}
+
+#header {
+    font-size: 16px;
+    color: #000;
+    height: 40px;
+    line-height: 40px;
+    position: relative;
+    background: #FFF;
+    padding: 0 10px;
+    -webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+}
+
+#header .welcome {
+    float: right;
+    height: 100%;
+    position: relative;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+#header .welcome > a {
+    display: inline-block;
+    vertical-align: top;
+    width: 32px;
+    height: 32px;
+    margin-top: 4px;
+}
+
+#projects, #share {
+    overflow: auto;
+    height: 420px;
+}
+
+#projects .project {
+    height: 32px;
+    padding: 5px 10px;
+    line-height: 32px;
+    border-bottom: 1px solid #EEE;
+}
+
+#projects .project.open {
+    height: 64px;
+    background: #FFF !important;
+}
+
+#projects .project:hover {
+    background-color: #EEE;
+}
+
+#projects .project a.avatar {
+    display: inline-block;
+    vertical-align: top;
+    width: 32px;
+    float: left;
+    height: 32px;
+    margin-right: 5px;
+}
+
+/* project toolbar */
+
+#projects .project .toolbar {
+    display: none;
+}
+
+#projects .project.open .toolbar {
+    display: block;
+    height: 27px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border-top: 1px dotted #EEE;
+    margin-top: 5px;
+    padding: 0 36px;
+}
+
+#projects .project .toolbar .toolbar-item {
+    height: 24px;
+    width: 24px;
+    text-align: center;
+    line-height: 24px;
+    border: 1px solid rgba(0, 0, 0, 0);
+    margin: 2px 5px 0 0;
+    cursor: pointer;
+    display: inline-block;
+}
+
+#projects .project .toolbar .toolbar-item.round {
+    border-radius: 24px;
+    border: 1px solid #EEE;
+}
+
+#projects .project .toolbar .toolbar-item:hover {
+    background: #EEE;
+}
+
+/* project icon */
+
+#projects .project:hover .icon {
+    display: inline;
+}
+
+#projects .project .icon {
+    display: none;
+    float: right;
+}
+
+#projects .project .icon i.fa-angle-double-down {
+    display: inline;
+}
+
+#projects .project .icon i.fa-angle-double-up {
+    display: none;
+}
+
+#projects .project .icon.open i.fa-angle-double-down {
+    display: none;
+}
+
+#projects .project .icon.open i.fa-angle-double-up {
+    display: inline;
+}
+
+/* un login */
+#projects .un-login-message {
+    font-size: 16px;
+    text-align: center;
+    margin: 150px 0;
+}
+
+#projects .un-login-message .login.button {
+    margin: 10px auto;
+}
+
+/* footer and tabs */
+#footer {
+    height: 40px;
+    -webkit-box-shadow: 0 -2px 3px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0 -2px 3px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 -2px 3px rgba(0, 0, 0, 0.2);
+}
+
+#footer .tabs {
+    height: 40px;
+    font-size: 16px;
+    position: relative;
+}
+
+#footer .tabs .tab-item {
+    display: inline-block;
+    width: 50%;
+    height: 100%;
+    vertical-align: top;
+    float: left;
+    box-sizing: border-box;
+    text-align: center;
+    line-height: 40px;
+}
+
+#footer .tabs .tab-item.active {
+    border-bottom: 2px solid #4db0f4 !important;
+}
+
+#footer .tabs .tab-item:hover {
+    border-bottom: 2px solid #EEE;
+}
+
+/* delete paas dialog */
+
+#delete-paas-dialog {
+    position: absolute;
+    z-index: 99;
+    left: 50%;
+    top: 50%;
+    background: #FFF;
+    width: 60%;
+    height: 150px;
+    border: 1px solid #EEE;
+    margin: -75px 0 0 -30%;
+    box-sizing: border-box;
+    padding: 15px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.3);
+    box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.3);
+}
+
+#delete-paas-dialog p {
+    margin: 2px 0;
+    line-height: 18px;
+}
+
+#delete-paas-dialog input {
+    width: 100%;
+    height: 22px;
+    border: 1px solid #CCC;
+    border-radius: 3px;
+    box-sizing: border-box;
+    padding: 13px 10px;
+    text-align: center;
+}
+
+#delete-paas-dialog .delete-button {
+    text-align: center;
+}
+
+#delete-paas-dialog .button {
+    padding: 2px 5px;
+    line-height: 26px;
+    font-size: 14px;
+}
+
+#delete-paas-dialog .password {
+    position: relative;
+    margin: 10px 0;
+}
+
+#delete-paas-dialog .close {
+    position: absolute;
+    right: 3px;
+    top: 0;
+    color: #e6336e;
+}
+
+#delete-paas-dialog .error {
+    display: none;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    position: absolute;
+    background: rgba(255, 80, 80, 0.87);
+    color: #FFFFFF;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    text-align: center;
+}
+
+#delete-paas-dialog .deleting-error .error {
+    display: block;
+    top: -30px;
+}
+
+body.dimmer:before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: rgba(0, 0, 0, .2);
+    z-index: 98;
+}
+
+/* share */
+
+#share {
+    text-align: center;
+    position: relative;
+}
+
+#share textarea {
+    border: 1px solid #CCC;
+    border-radius: 3px;
+    resize: none;
+    width: 80%;
+    box-sizing: border-box;
+    margin: 80px 0 20px 0;
+    padding: 6px 10px;
+}
+
+#share .msg{
+    width: 80%;
+    height: 30px;
+    line-height: 30px;
+    position: absolute;
+    top: 155px;
+    left: 50%;
+    margin-left: -40%;
+    background: rgba(19, 176, 79, 0.87);
+    color: #FFFFFF;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    display: none;
+}
+
+#share .msg.active{
+    display: block;
+}
+
+#share .msg.error{
+    background: rgba(255, 80, 80, 0.87);
+}
+
+#share .about{
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}

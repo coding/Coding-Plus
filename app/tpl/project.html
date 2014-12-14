@@ -1,0 +1,28 @@
+{{#each projects}}
+<div class="project {{#if running}}running{{/if}}">
+	<a class="avatar" href="{{path}}" target="_blank">
+		<img class="avatar32" src="{{icon}}"/>
+	</a>
+	{{name}}
+	{{#if running}}
+	<a href="{{site}}" target="_blank" title="查看演示">
+		<i class="fa fa-play-circle green"></i> ({{memory}}M)
+	</a>
+	<span class="icon">
+		<i class="fa fa-angle-double-down"></i>
+		<i class="fa fa-angle-double-up"></i>
+	</span>
+	<div class="toolbar" data-user="{{user}}" data-project="{{name}}">
+		<div class="toolbar-item round" data-action="remove" title="删除项目 {{name}} 演示">
+			<i class="fa fa-remove red"></i>
+		</div>
+		<div class="toolbar-item round" data-action="stop"  title="停止项目 {{name}} 演示">
+			<i class="fa fa-stop red"></i>
+		</div>
+		<div class="toolbar-item round" data-action="deploy"  title="部署项目 {{name}} 演示">
+			<i class="fa fa-play green" style="margin-left: 4px;"></i>
+		</div>
+	</div>
+	{{/if}}
+</div>
+{{/each}}

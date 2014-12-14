@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<!-- bower:css -->
+		<link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css"/>
+		<!-- endbower -->
+
+		<!-- build:css styles/app.css -->
+		<link href="styles/common.css" rel="stylesheet">
+		<link href="styles/main.css" rel="stylesheet">
+		<!-- endbuild -->
+
+		<!-- bower:js -->
+		<script src="bower_components/zepto/zepto.js"></script>
+		<script src="bower_components/handlebars/handlebars.js"></script>
+		<!-- endbower -->
+
+		<!-- build:js scripts/app.js -->
+		<script src="scripts/api.js"></script>
+		<script src="scripts/thumbnail.js"></script>
+		<script src="scripts/safe_handlebars.js"></script>
+		<script src="scripts/sha1.js"></script>
+		<script src="scripts/popup.js"></script>
+		<!-- endbuild -->
+	</head>
+	<body>
+	<iframe id="tpl_sandbox" src="tpl_sandbox.html" style="display:none;"></iframe>
+	<header id="header">
+	</header>
+	<section id="projects">
+	</section>
+	<section id="share" style="display: none;">
+		<form method="POST">
+			<textarea name="share-content" cols="30" rows="10">我在使用 @彭博 开发的 Coding 功能增强 Chrome 插件 -- [Coding+][1] ，能随时查看所有项目 Paas 部署内存量等，感觉还不错哦，速速试试吧!
+Repo: https://coding.net/bluishoul/coding-plus.git
+![图片](https://dn-coding-net-production-pp.qbox.me/47e92c0a-b10b-4a68-b18f-d541666d0705.png)
+[1]: https://chrome.google.com/webstore/detail/acnaapkhlmodemlhcemfkdmnmdflfaec</textarea>
+			<div class="msg">分享成功！</div>
+			<div class="about">Designed by <a href="https://coding.net/u/bluishoul" target="_blank">彭博 @ Coding</a></div>
+			<div class="share-button">
+				<a class="button green">分享到冒泡</a>
+			</div>
+		</form>
+	</section>
+	</body>
+	<footer id="footer">
+		<div class="tabs">
+			<div class="tab-item active" data-target="projects">
+				项目
+			</div>
+			<div class="tab-item" data-target="share">
+				分享
+			</div>
+		</div>
+	</footer>
+</html>

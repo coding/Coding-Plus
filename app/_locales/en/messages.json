@@ -1,0 +1,10 @@
+{
+  "appName": {
+    "message": "coding-more",
+    "description": "The name of the application"
+  },
+  "appDescription": {
+    "message": "More new feature hacking plugin for Coding.net",
+    "description": "The description of the application"
+  }
+}

@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+	<script src="bower_components/zepto/zepto.js"></script>
+	<script src="bower_components/handlebars/handlebars.js"></script>
+	<script src="scripts/api.js"></script>
+	<script src="scripts/tpl.js"></script>
+</head>
+<body>
+<script>
+	'use strict';
+	/* global $,CodingAPI,TPL */
+
+	window.addEventListener('message', function (event) {
+		var data = event.data;
+		if (!data && data.id) return;
+		var html = TPL.get(data.id, data.params);
+		event.source.postMessage({
+			id: data.id,
+			html: html
+		}, event.origin);
+	});
+</script>
+</body>
+</html>
