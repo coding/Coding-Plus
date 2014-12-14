@@ -1,3 +1,9 @@
+#Download Coding+ 
+
+[Chrome 应用商店下载][6]
+
+[Baidu 网盘下载][7]
+
 #About Coding+
 
 >为 Coding.net 添加更多酷炫的特性！
@@ -24,5 +30,6 @@
 [3]: https://dn-coding-net-production-pp.qbox.me/03257481-357e-45d5-9c6d-16288150d639.jpg
 [4]: https://dn-coding-net-production-pp.qbox.me/dcf61c00-2374-4af8-8fbe-538b07f7b1ec.jpg
 [5]: https://dn-coding-net-production-pp.qbox.me/77e8b6a0-770e-4da5-a42a-54d9309d0a00.jpg
-
+[6]: https://chrome.google.com/webstore/detail/acnaapkhlmodemlhcemfkdmnmdflfaec
+[7]: http://pan.baidu.com/s/1eQvPhRk
 
