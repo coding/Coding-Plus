@@ -11,6 +11,8 @@
 		<!-- build:css styles/app.css -->
 		<link href="styles/common.css" rel="stylesheet">
 		<link href="styles/main.css" rel="stylesheet">
+		<link href="styles/projects.css" rel="stylesheet">
+		<link href="styles/share.css" rel="stylesheet">
 		<!-- endbuild -->
 
 		<!-- build:js scripts/lib.js -->
@@ -26,6 +28,7 @@
 		<script src="scripts/safe_handlebars.js"></script>
 		<script src="scripts/sha1.js"></script>
 		<script src="scripts/popup.js"></script>
+		<script src="scripts/projects/index.js"></script>
 		<!-- endbuild -->
 	</head>
 	<body>
@@ -33,6 +36,15 @@
 	<header id="header">
 	</header>
 	<section id="projects">
+		<div class="quick-toolbar">
+			<div class="toolbar-item refresh-projects" id="refresh-projects">
+				<i class="fa fa-refresh green"></i>
+			</div>
+			<div class="toolbar-item remove-activity-update-count" id="remove-update-count"
+			     title="一键清除项目更新数字提醒">
+			</div>
+		</div>
+		<div id="project-list"></div>
 	</section>
 	<section id="share" style="display: none;">
 		<form method="POST">

@@ -2,6 +2,7 @@
 <div class="project {{#if running}}running{{/if}}">
 	<a class="avatar" href="{{path}}" target="_blank">
 		<img class="avatar32" src="{{icon}}"/>
+		{{#if activityUpdateCount}}<span class="activity-update-count update-count-tip">{{activityUpdateCount}}</span>{{/if}}
 	</a>
 	{{name}}{{#if isPrivate}} <i class="fa fa-lock"></i>{{/if}}
 	{{#if running}}

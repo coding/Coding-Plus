@@ -1,0 +1,230 @@
+#projects .project, #projects .quick-toolbar {
+    height: 32px;
+    padding: 5px 10px;
+    line-height: 32px;
+    border-bottom: 1px solid #EEE;
+}
+
+#projects .project.open {
+    height: 64px;
+    background: #FFF !important;
+}
+
+#projects .project:hover {
+    background-color: #EEE;
+}
+
+#projects .project a.avatar {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    width: 32px;
+    float: left;
+    height: 32px;
+    margin-right: 5px;
+}
+
+/* project toolbar */
+
+#projects .project .toolbar {
+    display: none;
+}
+
+#projects .project.open .toolbar {
+    display: block;
+    height: 27px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border-top: 1px dotted #EEE;
+    margin-top: 5px;
+    padding: 0 36px;
+}
+
+#projects .project .toolbar .toolbar-item {
+    height: 24px;
+    width: 24px;
+    text-align: center;
+    line-height: 24px;
+    border: 1px solid rgba(0, 0, 0, 0);
+    margin: 2px 5px 0 0;
+    cursor: pointer;
+    display: inline-block;
+}
+
+#projects .project .toolbar .toolbar-item.round {
+    border-radius: 24px;
+    border: 1px solid #EEE;
+}
+
+#projects .project .toolbar .toolbar-item:hover {
+    background: #EEE;
+}
+
+/* project icon */
+
+#projects .project:hover .icon {
+    display: inline;
+}
+
+#projects .project .icon {
+    display: none;
+    float: right;
+}
+
+#projects .project .icon i.fa-angle-double-down {
+    display: inline;
+}
+
+#projects .project .icon i.fa-angle-double-up {
+    display: none;
+}
+
+#projects .project .icon.open i.fa-angle-double-down {
+    display: none;
+}
+
+#projects .project .icon.open i.fa-angle-double-up {
+    display: inline;
+}
+
+/* un login */
+#projects .un-login-message {
+    font-size: 16px;
+    text-align: center;
+    margin: 150px 0;
+}
+
+#projects .un-login-message .login.button {
+    margin: 10px auto;
+}
+
+/* delete paas dialog */
+
+#delete-paas-dialog {
+    position: absolute;
+    z-index: 99;
+    left: 50%;
+    top: 50%;
+    background: #FFF;
+    width: 60%;
+    height: 150px;
+    border: 1px solid #EEE;
+    margin: -75px 0 0 -30%;
+    box-sizing: border-box;
+    padding: 15px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.3);
+    box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.3);
+}
+
+#delete-paas-dialog p {
+    margin: 2px 0;
+    line-height: 18px;
+}
+
+#delete-paas-dialog input {
+    width: 100%;
+    height: 22px;
+    border: 1px solid #CCC;
+    border-radius: 3px;
+    box-sizing: border-box;
+    padding: 13px 10px;
+    text-align: center;
+}
+
+#delete-paas-dialog .delete-button {
+    text-align: center;
+}
+
+#delete-paas-dialog .button {
+    padding: 2px 5px;
+    line-height: 26px;
+    font-size: 14px;
+}
+
+#delete-paas-dialog .password {
+    position: relative;
+    margin: 10px 0;
+}
+
+#delete-paas-dialog .close {
+    position: absolute;
+    right: 3px;
+    top: 0;
+    color: #e6336e;
+}
+
+#delete-paas-dialog .error {
+    display: none;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    position: absolute;
+    background: rgba(255, 80, 80, 0.87);
+    color: #FFFFFF;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    text-align: center;
+}
+
+#delete-paas-dialog .deleting-error .error {
+    display: block;
+    top: -30px;
+}
+
+.activity-update-count {
+    right: -10px;
+    top: -5px;
+    transform: scale(0.8);
+}
+
+/* project quick toolbar */
+
+#projects .quick-toolbar {
+    position: relative;
+}
+
+#projects .quick-toolbar .toolbar-item{
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 30px;
+    border: 1px solid #EEE;
+    cursor: pointer;
+    text-align: center;
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 6px;
+}
+
+#projects .quick-toolbar .toolbar-item.loading {
+    font-size: 20px;
+}
+
+#projects .quick-toolbar .toolbar-item:hover{
+    background: #EEE;
+}
+
+#projects .quick-toolbar
+.toolbar-item.remove-activity-update-count{
+    font-size: 20px;
+    color: #9B9B9B;
+}
+
+#projects .quick-toolbar
+.toolbar-item.remove-activity-update-count
+.update-count-tip{
+    top: 0;
+    right: -10px;
+}
+
+#projects .quick-toolbar
+.toolbar-item.refresh-projects{
+    font-size: 18px;
+}
+

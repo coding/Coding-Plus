@@ -117,6 +117,27 @@
 		});
 	};
 
+	var removeProjectActivityCount = function (id, callback) {
+		var url = [CODING_HOST, '/api/project/', id, '/update_visit'].join('');
+		return get(url, callback);
+	};
+
+	var removeActivityCount = function (projectIds, callback) {
+		var counts = 0;
+		var cbk = function () {
+			counts++;
+			if(counts === projectIds.length && callback){
+				callback();
+			}
+		};
+		$.each(projectIds, function (i, id) {
+			removeProjectActivityCount(id, cbk);
+		});
+		if(projectIds.length === 0 && callback){
+			callback();
+		}
+	};
+
 	var API = {
 		sort: sort,
 		get: get,
@@ -130,6 +151,7 @@
 			return paasPlayer.bind(this, username, projectName);
 		},
 		share: share,
+		removeCount: removeActivityCount,
 		host: CODING_HOST
 	};
 
