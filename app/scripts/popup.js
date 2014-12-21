@@ -64,7 +64,8 @@ $(function () {
 						'user': project.owner_user_name,
 						'$.path': project.project_path,
 						'$.icon': project.icon,
-						'name': project.name
+						'name': project.name,
+						'isPrivate': !project.is_public
 					};
 				});
 				renderProjects(prjs);

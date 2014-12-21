@@ -3,7 +3,7 @@
 	<a class="avatar" href="{{path}}" target="_blank">
 		<img class="avatar32" src="{{icon}}"/>
 	</a>
-	{{name}}
+	{{name}}{{#if isPrivate}} <i class="fa fa-lock"></i>{{/if}}
 	{{#if running}}
 	<a href="{{site}}" target="_blank" title="查看演示">
 		<i class="fa fa-play-circle green"></i> ({{memory}}M)
