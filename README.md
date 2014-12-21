@@ -2,8 +2,6 @@
 
 [Chrome 应用商店下载][6]
 
-[Baidu 网盘下载][7]
-
 #About Coding+
 
 >为 Coding.net 添加更多酷炫的特性！
@@ -15,6 +13,14 @@
 ![Preview2][4]
 
 ![Preview3][5]
+
+#Change Log
+
+v1.0.17 ( 2014-12-21 )
+
+1. 添加判断私有项目的 lock 图标
+2. 添加刷新项目按钮
+3. 添加一键去除项目更新提示数字
 
 
 #Pull Request
