@@ -39,5 +39,8 @@
 #share .about {
     position: absolute;
     bottom: 20px;
-    right: 20px;
+    left: 20px;
+    text-align: center;
+    width: 365px;
+    line-height: 23px;
 }
