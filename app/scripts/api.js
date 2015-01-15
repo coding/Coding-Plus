@@ -6,6 +6,14 @@
 
 	var CODING_HOST = 'https://coding.net';
 
+	var SERVICES = {
+		mongodb: 'mongodb',
+		fs: 'filesystem',
+		mysql: 'mysql'
+	};
+
+	function noop() {}
+
 	var ajax = function (url, callback, method, data) {
 		return $.ajax({
 			type: method || 'GET',
@@ -29,7 +37,7 @@
 	};
 
 	var get = function (url, callback) {
-		return ajax(url, callback, 'GET');
+		return ajax(url, callback, 'GET')
 	};
 
 	var post = function (url, callback, data) {
@@ -97,6 +105,41 @@
 		return del(url, callback);
 	};
 
+	var avaServices = function (username, projectName, serviceType, callback) {
+		var url = [CODING_HOST, '/api/paas/', username, '/', projectName, '/cf_services/avaliable'].join('');
+		return get(url, function (services) {
+			if (callback) {
+				callback($.map(services, function (service){
+					return (service.label === serviceType || typeof serviceType === 'undefined') ? service : undefined;
+				}));
+			}
+		});
+	};
+
+	var createServiceInstance = function (username, projectName, guid, name, callback) {
+		var url = [CODING_HOST, '/api/paas/', username, '/', projectName, '/cf_services'].join('');
+		return post(url, callback, {
+			guid: guid,
+			name: name
+		});
+	};
+
+	var bindServiceInstance = function (username, projectName, serviceId, callback) {
+		var url = [CODING_HOST, '/api/paas/', username, '/', projectName, '/cf_services/', serviceId, '/bind'].join('');
+		return post(url, callback);
+	};
+
+	var createAndBindService = function (username, projectName, serviceGuid, serviceName, callback) {
+		createServiceInstance(username, projectName, serviceGuid, serviceName, function (service){
+			bindServiceInstance(username, projectName, service.id, callback);
+		});
+	};
+
+	var serviceCredentials = function (username, projectName, serviceId, callback) {
+		var url = [CODING_HOST, '/api/paas/', username, '/', projectName, '/cf_services/', serviceId, '/credentials'].join('');
+		return post(url, callback);
+	};
+
 	var sort = function (array, sortBy) {
 		var first = [],
 			second = [];
@@ -147,6 +190,12 @@
 		me: currentUser,
 		projects: projects,
 		deletePaas: deletePaas,
+		avaServices: avaServices,
+		createAndBindService: createAndBindService,
+		createServiceInstance: createServiceInstance,
+		bindServiceInstance: bindServiceInstance,
+		serviceCredentials: serviceCredentials,
+		services: SERVICES,
 		player: function (username, projectName) {
 			return paasPlayer.bind(this, username, projectName);
 		},

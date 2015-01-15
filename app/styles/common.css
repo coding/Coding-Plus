@@ -19,6 +19,10 @@ i.fa.red {
     color: #e6336e;
 }
 
+i.fa.ice-blue {
+    color: #54C4D8;
+}
+
 i.fa.clickable{
     cursor: pointer;
 }
@@ -72,6 +76,33 @@ input, textarea{
     border: 2px solid #FFF;
     text-align: center;
 }
+
+/* dialog */
+.dialog {
+    position: absolute;
+    z-index: 99;
+    left: 50%;
+    top: 50%;
+    background: #FFF;
+    border: 1px solid #EEE;
+    margin: -75px 0 0 -30%;
+    box-sizing: border-box;
+    padding: 15px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.3);
+    box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.3);
+}
+
+.dialog .fa.close {
+    position: absolute;
+    right: 3px;
+    top: 0;
+    color: #e6336e;
+}
+
 
 /* loading */
 

@@ -43,23 +43,24 @@ $(function () {
 
 	var renderQuickToolbar = function (loading) {
 		var count = 0;
-		$.each(notificationUnreadProjects, function (i, c) {
-			count += c;
+		$.each(notificationUnreadProjects, function (i, project) {
+			/*jshint camelcase: false */
+			count += project.un_read_activities_count;
 		});
 		safeTpl.get('remove_update_count', {loading: loading || false, count: count>99 ? '99+' : count}, function (html) {
 			$('#remove-update-count').html(html);
-		})
+		});
 	};
 
 	var loadProjects = function (callback) {
 		CodingAPI.projects('all', function (projects) {
 			if (!projects.code) {
 				var prjs = $.map(projects, function (project) {
+					/*jshint camelcase: false */
 					if (!!project.un_read_activities_count) {
-						notificationUnreadProjects.push(project.id);
+						notificationUnreadProjects.push(project);
 					}
 					return {
-						/*jshint camelcase: false */
 						'user': project.owner_user_name,
 						'$.path': project.project_path,
 						'$.icon': project.icon,
@@ -149,6 +150,19 @@ $(function () {
 				deletePaas(password);
 			};
 			$('body').on('click', '#delete-paas-dialog .delete-paas.button', doDelete);
+		} if(action === 'db') {
+			CodingAPI.avaServices(user, project, CodingAPI.services['mysql'], function (services) {
+				if(services.length === 0){
+
+				}else{
+					choosePaasDbDialog.show({
+						project: project,
+						services: services
+					}, function onChoose(guid) {
+						alert(guid);
+					});
+				}
+			})
 		} else {
 			var player = CodingAPI.player(user, project);
 			player(action, function () {
@@ -165,7 +179,10 @@ $(function () {
 		var self = $(this);
 		self.addClass('loading');
 		renderQuickToolbar(true);
-		CodingAPI.removeCount(notificationUnreadProjects, function () {
+		var ids = $.map(notificationUnreadProjects, function (project) {
+			return project.id;
+		});
+		CodingAPI.removeCount(ids, function () {
 			$.each(allProjects, function (i, prj) {
 				prj.activityUpdateCount = 0;
 			});
@@ -183,7 +200,7 @@ $(function () {
 		icon.addClass('loading');
 		loadProjects(function () {
 			icon.removeClass('loading');
-		})
+		});
 	});
 
 	loadProjects();

@@ -1,6 +1,6 @@
 'use strict';
 
-/* global $, CodingAPI, safeTpl, SHA1 */
+/* global $, CodingAPI, safeTpl */
 
 $(function () {
 

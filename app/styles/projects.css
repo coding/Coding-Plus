@@ -102,23 +102,8 @@
 /* delete paas dialog */
 
 #delete-paas-dialog {
-    position: absolute;
-    z-index: 99;
-    left: 50%;
-    top: 50%;
-    background: #FFF;
     width: 60%;
     height: 150px;
-    border: 1px solid #EEE;
-    margin: -75px 0 0 -30%;
-    box-sizing: border-box;
-    padding: 15px;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    border-radius: 3px;
-    -webkit-box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.3);
-    -moz-box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.3);
-    box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.3);
 }
 
 #delete-paas-dialog p {
@@ -149,13 +134,6 @@
 #delete-paas-dialog .password {
     position: relative;
     margin: 10px 0;
-}
-
-#delete-paas-dialog .close {
-    position: absolute;
-    right: 3px;
-    top: 0;
-    color: #e6336e;
 }
 
 #delete-paas-dialog .error {

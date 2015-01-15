@@ -43,7 +43,7 @@
 				params[k] = host + param;
 				delete params[key];
 			}
-			if (typeof param === 'object') {
+			if (typeof param === 'object' && param) {
 				$.each(param, function (k, p) {
 					p = prependHost(p);
 				});

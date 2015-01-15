@@ -1,0 +1,11 @@
+<div id="choose-paas-db-dialog" class="dialog">
+	<i class="fa fa-close close clickable"></i>
+	<p>
+		{{project}} 演示可用 mysql 数据库
+	</p>
+	<div class="services">
+		{{#each services}}
+		<a class="item" href="javascript:void(0);" data-guid="{{guid}}"><i class="fa fa-database"></i>{{name}}</a>
+		{{/each}}
+	</div>
+</div>

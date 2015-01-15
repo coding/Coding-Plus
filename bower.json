@@ -4,7 +4,8 @@
   "dependencies": {
     "zepto": "~1.1.6",
     "handlebars": "~2.0.0",
-    "font-awesome": "~4.2.0"
+    "font-awesome": "~4.2.0",
+    "localforage": "~1.2.1"
   },
   "devDependencies": {}
 }
