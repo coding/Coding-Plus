@@ -2,7 +2,7 @@
 
 1. [Chrome 应用商店下载][6]  
 
-2. [百度网盘(V1.0.23)][7]
+2. [百度网盘 (v1.1.0)][7]
 
 #About Coding+
 
@@ -10,11 +10,16 @@
 
 利用现有的 Coding 演示平台的 API，将个人所有的项目的 演示内存使用统一展示，并提供快捷停止、启动（需先开启演示）删除演示释放内存（部署其他应用内存不足时适用）
 
- ![图片](https://dn-coding-net-production-pp.qbox.me/907e815f-5ccf-45c2-a5e3-93044dddd145.png) 
+ ![图片](https://dn-coding-net-production-pp.qbox.me/a2095463-9dfe-4d68-90e8-bf6d5601b72d.png) 
 
  ![图片](https://dn-coding-net-production-pp.qbox.me/69d1ee73-df26-4927-9027-1e29c845fe77.png) 
 
 #Change Log
+
+v1.1.0 ( 2015-01-18)
+
+1. 添加项目列表缓存，加快列表加载速度
+2. 添加一键登录 Adminer，方便管理 Mysql 服务
 
 v1.0.17 ( 2014-12-21 )
 
@@ -34,5 +39,5 @@ v1.0.17 ( 2014-12-21 )
 [1]: https://coding.net/u/bluishoul/p/coding-plus/git/pulls
 [2]: https://coding.net/u/bluishoul/p/coding-plus/topic
 [6]: https://chrome.google.com/webstore/detail/acnaapkhlmodemlhcemfkdmnmdflfaec
-[7]: http://pan.baidu.com/s/1hqgSWBy
+[7]: http://pan.baidu.com/s/1sj3Bo9f
 
