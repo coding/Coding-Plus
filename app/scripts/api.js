@@ -1,6 +1,6 @@
 'use strict';
 
-/* global Zepto */
+/* global Zepto*/
 
 (function (window, $, undefined) {
 
@@ -12,7 +12,8 @@
 		mysql: 'mysql'
 	};
 
-	function noop() {}
+	function noop() {
+	};
 
 	var ajax = function (url, callback, method, data) {
 		return $.ajax({
@@ -109,7 +110,18 @@
 		var url = [CODING_HOST, '/api/paas/', username, '/', projectName, '/cf_services/avaliable'].join('');
 		return get(url, function (services) {
 			if (callback) {
-				callback($.map(services, function (service){
+				callback($.map(services, function (service) {
+					return (service.label === serviceType || typeof serviceType === 'undefined') ? service : undefined;
+				}));
+			}
+		});
+	};
+
+	var services = function (username, projectName, serviceType, callback) {
+		var url = [CODING_HOST, '/api/paas/', username, '/', projectName, '/cf_services'].join('');
+		return get(url, function (services) {
+			if (callback) {
+				callback($.map(services, function (service) {
 					return (service.label === serviceType || typeof serviceType === 'undefined') ? service : undefined;
 				}));
 			}
@@ -130,14 +142,14 @@
 	};
 
 	var createAndBindService = function (username, projectName, serviceGuid, serviceName, callback) {
-		createServiceInstance(username, projectName, serviceGuid, serviceName, function (service){
+		createServiceInstance(username, projectName, serviceGuid, serviceName, function (service) {
 			bindServiceInstance(username, projectName, service.id, callback);
 		});
 	};
 
 	var serviceCredentials = function (username, projectName, serviceId, callback) {
 		var url = [CODING_HOST, '/api/paas/', username, '/', projectName, '/cf_services/', serviceId, '/credentials'].join('');
-		return post(url, callback);
+		return get(url, callback);
 	};
 
 	var sort = function (array, sortBy) {
@@ -169,16 +181,20 @@
 		var counts = 0;
 		var cbk = function () {
 			counts++;
-			if(counts === projectIds.length && callback){
+			if (counts === projectIds.length && callback) {
 				callback();
 			}
 		};
 		$.each(projectIds, function (i, id) {
 			removeProjectActivityCount(id, cbk);
 		});
-		if(projectIds.length === 0 && callback){
+		if (projectIds.length === 0 && callback) {
 			callback();
 		}
+	};
+
+	var randomID = function () {
+		return Math.random().toString(36).substring(2);
 	};
 
 	var API = {
@@ -190,18 +206,20 @@
 		me: currentUser,
 		projects: projects,
 		deletePaas: deletePaas,
+		services: services,
 		avaServices: avaServices,
 		createAndBindService: createAndBindService,
 		createServiceInstance: createServiceInstance,
 		bindServiceInstance: bindServiceInstance,
 		serviceCredentials: serviceCredentials,
-		services: SERVICES,
+		SERVICES: SERVICES,
 		player: function (username, projectName) {
 			return paasPlayer.bind(this, username, projectName);
 		},
 		share: share,
 		removeCount: removeActivityCount,
-		host: CODING_HOST
+		host: CODING_HOST,
+		randomID: randomID
 	};
 
 	window.CodingAPI = API;

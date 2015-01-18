@@ -160,6 +160,28 @@
     transform: scale(0.8);
 }
 
+
+/* paas db dialog */
+.paas-db-dialog {
+    width: 60%;
+    height: 150px;
+}
+
+.paas-db-dialog .services {
+    height: 80px;
+    overflow: auto;
+}
+
+.paas-db-dialog .services a.item {
+    margin: 0 10px 10px 0;
+    display: inline-block;
+}
+
+.paas-db-dialog .services a.item i.fa{
+    margin-right: 3px;
+}
+
+
 /* project quick toolbar */
 
 #projects .quick-toolbar {
@@ -205,4 +227,3 @@
 .toolbar-item.refresh-projects{
     font-size: 18px;
 }
-

@@ -1,0 +1,23 @@
+<div id="bind-paas-db-dialog" class="dialog paas-db-dialog">
+	<i class="fa fa-close close clickable"></i>
+	{{#if services.length}}
+	<p>
+		{{project}} 演示可绑定 mysql 数据库
+	</p>
+	<div class="services">
+		{{#each services}}
+		<a class="item" href="javascript:void(0);"
+		   title="绑定并使用 Adminer 登录数据库 {{name}}"
+		   data-guid="{{guid}}"
+		   data-id="{{id}}"><i class="fa fa-database"></i>{{name}}</a>
+		{{/each}}
+	</div>
+	{{else}}
+	<p style="text-align: center;">
+		无可用 mysql 服务<br><br>
+		<a href="https://coding.net/u/{{user}}/p/{{project}}/paas/services" target="_blank">
+			马上前往项目 {{project}} 创建服务！
+		</a>
+	</p>
+	{{/if}}
+</div>

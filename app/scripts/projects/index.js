@@ -1,6 +1,6 @@
 'use strict';
 
-/* global $, CodingAPI, safeTpl, SHA1 */
+/* global $, CodingAPI, safeTpl, SHA1, Adminer */
 
 $(function () {
 
@@ -52,37 +52,57 @@ $(function () {
 		});
 	};
 
-	var loadProjects = function (callback) {
-		CodingAPI.projects('all', function (projects) {
-			if (!projects.code) {
-				var prjs = $.map(projects, function (project) {
-					/*jshint camelcase: false */
-					if (!!project.un_read_activities_count) {
-						notificationUnreadProjects.push(project);
-					}
-					return {
-						'user': project.owner_user_name,
-						'$.path': project.project_path,
-						'$.icon': project.icon,
-						'name': project.name,
-						'isPrivate': !project.is_public,
-						'activityUpdateCount': project.un_read_activities_count || 0
-					};
-				});
-				renderProjects(prjs);
-				loadPaasInfo(prjs);
-				renderQuickToolbar();
-				allProjects = prjs;
+	var afterLoadProjects = function (projects, callback) {
+		if (!projects.code) {
+			var prjs = $.map(projects, function (project) {
+				/*jshint camelcase: false */
+				if (!!project.un_read_activities_count) {
+					notificationUnreadProjects.push(project);
+				}
+				return {
+					'user': project.owner_user_name,
+					'$.path': project.project_path,
+					'$.icon': project.icon,
+					'name': project.name,
+					'isPrivate': !project.is_public,
+					'activityUpdateCount': project.un_read_activities_count || 0
+				};
+			});
+			renderProjects(prjs);
+			loadPaasInfo(prjs);
+			renderQuickToolbar();
+			allProjects = prjs;
+			if(callback){
+				callback();
+			}
+		} else {
+			safeTpl.get('unlogin_content', {}, function (html) {
+				$('#project-list').html(html);
 				if(callback){
 					callback();
 				}
-			} else {
-				safeTpl.get('unlogin_content', {}, function (html) {
-					$('#project-list').html(html);
-					if(callback){
-						callback();
-					}
-				});
+			});
+		}
+	};
+
+	var loadRemoteProjects = function (callback) {
+		CodingAPI.projects('all', function (projects) {
+			CodingStorageInstance.set('projects', {projects: projects}, function () {
+				afterLoadProjects(projects, callback);
+			});
+		});
+	};
+
+	var loadProjects = function (callback, refresh) {
+		if(refresh) {
+			loadRemoteProjects(callback);
+			return;
+		}
+		CodingStorageInstance.get('projects', function (data) {
+			if(data && data.projects && data.projects.length > 0){
+				afterLoadProjects(data.projects, callback);
+			}else {
+				loadRemoteProjects(callback);
 			}
 		});
 	};
@@ -151,15 +171,40 @@ $(function () {
 			};
 			$('body').on('click', '#delete-paas-dialog .delete-paas.button', doDelete);
 		} if(action === 'db') {
-			CodingAPI.avaServices(user, project, CodingAPI.services['mysql'], function (services) {
+			if(user !== currentUser.global_key){
+				var dialog = new PaasDbDialog('error');
+				dialog.show({
+					user: user,
+					project: project
+				});
+				return;
+			}
+			CodingAPI.services(user, project, CodingAPI.SERVICES['mysql'], function (services) {
 				if(services.length === 0){
-
+					CodingAPI.avaServices(user, project, CodingAPI.SERVICES['mysql'], function (services) {
+						var dialog = new PaasDbDialog('bind');
+						dialog.show({
+							user: user,
+							project: project,
+							services: services
+						}, function onChoose(service) {
+							CodingAPI.bindServiceInstance(user, project, service.id, function () {
+								CodingAPI.serviceCredentials(user, project, service.id, function (credentials) {
+									Adminer.login(credentials);
+								});
+							});
+						});
+					});
 				}else{
-					choosePaasDbDialog.show({
+					var dialog = new PaasDbDialog('choose');
+					dialog.show({
+						user: user,
 						project: project,
 						services: services
-					}, function onChoose(guid) {
-						alert(guid);
+					}, function onChoose(service) {
+						CodingAPI.serviceCredentials(user, project, service.id, function (credentials) {
+							Adminer.login(credentials);
+						});
 					});
 				}
 			})
@@ -200,7 +245,7 @@ $(function () {
 		icon.addClass('loading');
 		loadProjects(function () {
 			icon.removeClass('loading');
-		});
+		}, true);
 	});
 
 	loadProjects();

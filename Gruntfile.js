@@ -284,7 +284,7 @@ module.exports = function (grunt) {
 		compress: {
 			dist: {
 				options: {
-					archive: 'package/coding-more<%= config.manifest.version %>.zip'
+					archive: 'package/CodingPlus-<%= config.manifest.version %>.zip'
 				},
 				files: [{
 					expand: true,

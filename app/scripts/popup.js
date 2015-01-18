@@ -10,6 +10,7 @@ $(function () {
 		var data = {};
 		if (!result.code) {
 			var user = result.data;
+			window.currentUser = user;
 			data = {name: user.name, '$.avatar': user.avatar, '$.path': user.path};
 		}
 		safeTpl.get('header', data, function (html) {

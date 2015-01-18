@@ -19,7 +19,6 @@
 		<!-- bower:js -->
 		<script src="bower_components/zepto/zepto.js"></script>
 		<script src="bower_components/handlebars/handlebars.js"></script>
-		<script src="bower_components/localforage/src/localforage.js"></script>
 		<!-- endbower -->
 		<!-- endbuild -->
 
@@ -29,8 +28,10 @@
 		<script src="scripts/safe_handlebars.js"></script>
 		<script src="scripts/sha1.js"></script>
 		<script src="scripts/popup.js"></script>
+		<script src="scripts/storage.js"></script>
+		<script src="scripts/adminer/index.js"></script>
 		<script src="scripts/projects/index.js"></script>
-		<script src="scripts/projects/choose_paas_db_dialog.js"></script>
+		<script src="scripts/projects/paas_db_dialog.js"></script>
 		<!-- endbuild -->
 	</head>
 	<body>
@@ -50,9 +51,9 @@
 	</section>
 	<section id="share" style="display: none;">
 		<form method="POST">
-			<textarea name="share-content" cols="30" rows="10">部署应用内存不足？满眼红色数字强迫症？那就马上使用 [Coding+][1] 吧！Designed by @彭博
+			<textarea name="share-content" cols="30" rows="10">部署应用内存不足？满眼红色数字强迫症？无法在线管理 Mysql 服务？那就马上使用 [Coding+][1] 吧！Designed by @彭博
 Repo: https://coding.net/bluishoul/coding-plus.git
-![图片](https://dn-coding-net-production-pp.qbox.me/d16f47e1-4d6b-4450-8aed-add37ce47a40.png)
+![图片](https://dn-coding-net-production-pp.qbox.me/a2095463-9dfe-4d68-90e8-bf6d5601b72d.png)
 [1]: https://chrome.google.com/webstore/detail/acnaapkhlmodemlhcemfkdmnmdflfaec</textarea>
 			<div class="msg">分享成功！</div>
 			<div class="about">Designed by <a href="https://coding.net/u/bluishoul" target="_blank">彭博 @ Coding</a><br> Repo:
