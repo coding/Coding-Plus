@@ -16,6 +16,11 @@
 
 #Change Log
 
+v1.1.1 ( 2015-06-03)
+
+修复 Adminer 不能点击管理数据库的问题(fix topic: https://coding.net/u/bluishoul/p/coding-plus/topic/36675)
+
+
 v1.1.0 ( 2015-01-18)
 
 1. 添加项目列表缓存，加快列表加载速度
