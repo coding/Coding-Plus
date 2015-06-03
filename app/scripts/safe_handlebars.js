@@ -35,6 +35,9 @@
 	}
 
 	var prependHost = function (params) {
+        if(!params) {
+            return {};
+        }
 		$.each(params, function (key, param) {
 			if (/\$\./.test(key)) {
 				var k = key.replace(/\$\./, '');
