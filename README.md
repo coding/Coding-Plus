@@ -2,7 +2,7 @@
 
 1. [Chrome 应用商店下载][6]  
 
-2. [百度网盘 (v1.1.0)][7]
+2. [百度网盘 (v1.1.1)][7]
 
 #About Coding+
 
@@ -44,5 +44,5 @@ v1.0.17 ( 2014-12-21 )
 [1]: https://coding.net/u/bluishoul/p/coding-plus/git/pulls
 [2]: https://coding.net/u/bluishoul/p/coding-plus/topic
 [6]: https://chrome.google.com/webstore/detail/acnaapkhlmodemlhcemfkdmnmdflfaec
-[7]: http://pan.baidu.com/s/1sj3Bo9f
+[7]: http://pan.baidu.com/s/1mgkT8vu
 
