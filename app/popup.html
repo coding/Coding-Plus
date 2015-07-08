@@ -1,77 +1,80 @@
 <!doctype html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<!-- build:css styles/style.css -->
-		<!-- bower:css -->
-		<link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css"/>
-		<!-- endbower -->
-		<!-- endbuild -->
+    <head>
+        <meta charset="utf-8">
+        <!-- build:css styles/style.css -->
+        <!-- bower:css -->
+        <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css"/>
+        <!-- endbower -->
+        <!-- endbuild -->
 
-		<!-- build:css styles/app.css -->
-		<link href="styles/common.css" rel="stylesheet">
-		<link href="styles/main.css" rel="stylesheet">
-		<link href="styles/projects.css" rel="stylesheet">
-		<link href="styles/share.css" rel="stylesheet">
-		<!-- endbuild -->
+        <!-- build:css styles/app.css -->
+        <link href="styles/common.css" rel="stylesheet">
+        <link href="styles/main.css" rel="stylesheet">
+        <link href="styles/projects.css" rel="stylesheet">
+        <link href="styles/share.css" rel="stylesheet">
+        <!-- endbuild -->
 
-		<!-- build:js scripts/lib.js -->
-		<!-- bower:js -->
-		<script src="bower_components/zepto/zepto.js"></script>
-		<script src="bower_components/handlebars/handlebars.js"></script>
-		<!-- endbower -->
-		<!-- endbuild -->
+        <!-- build:js scripts/lib.js -->
+        <!-- bower:js -->
+        <script src="bower_components/zepto/zepto.js"></script>
+        <script src="bower_components/handlebars/handlebars.js"></script>
+        <!-- endbower -->
+        <!-- endbuild -->
 
-		<!-- build:js scripts/app.js -->
-		<script src="scripts/api.js"></script>
-		<script src="scripts/thumbnail.js"></script>
-		<script src="scripts/safe_handlebars.js"></script>
-		<script src="scripts/sha1.js"></script>
-		<script src="scripts/popup.js"></script>
-		<script src="scripts/storage.js"></script>
-		<script src="scripts/adminer/index.js"></script>
-		<script src="scripts/projects/index.js"></script>
-		<script src="scripts/projects/paas_db_dialog.js"></script>
-		<!-- endbuild -->
-	</head>
-	<body>
-	<iframe id="tpl_sandbox" src="tpl_sandbox.html" style="display:none;"></iframe>
-	<header id="header">
-	</header>
-	<section id="projects">
-		<div class="quick-toolbar">
-			<div class="toolbar-item refresh-projects" id="refresh-projects">
-				<i class="fa fa-refresh green"></i>
-			</div>
-			<div class="toolbar-item remove-activity-update-count" id="remove-update-count"
-			     title="一键清除项目更新数字提醒">
-			</div>
-		</div>
-		<div id="project-list"></div>
-	</section>
-	<section id="share" style="display: none;">
-		<form method="POST">
-			<textarea name="share-content" cols="30" rows="10">部署应用内存不足？满眼红色数字强迫症？无法在线管理 Mysql 服务？那就马上使用 [Coding+][1] 吧！Designed by @彭博
+        <!-- build:js scripts/app.js -->
+        <script src="scripts/api.js"></script>
+        <script src="scripts/thumbnail.js"></script>
+        <script src="scripts/safe_handlebars.js"></script>
+        <script src="scripts/sha1.js"></script>
+        <script src="scripts/popup.js"></script>
+        <script src="scripts/storage.js"></script>
+        <script src="scripts/adminer/index.js"></script>
+        <script src="scripts/projects/index.js"></script>
+        <script src="scripts/projects/paas_db_dialog.js"></script>
+        <!-- endbuild -->
+    </head>
+    <body>
+    <iframe id="tpl_sandbox" src="tpl_sandbox.html" style="display:none;"></iframe>
+    <header id="header">
+    </header>
+    <section id="projects">
+        <div class="quick-toolbar">
+            <div class="toolbar-item refresh-projects" id="refresh-projects">
+                <i class="fa fa-refresh green"></i>
+            </div>
+            <div class="toolbar-item remove-activity-update-count" id=" "
+                 title="一键清除项目更新数字提醒">
+            </div>
+        </div>
+        <div id="project-list"></div>
+    </section>
+    <section id="share" style="display: none;">
+        <form method="POST">
+            <textarea name="share-content" cols="30" rows="10">部署应用内存不足？满眼红色数字强迫症？无法在线管理 Mysql 服务？那就马上使用 [Coding+][1] 吧！Designed by @彭博
 Repo: https://coding.net/bluishoul/coding-plus.git
 ![图片](https://dn-coding-net-production-pp.qbox.me/a2095463-9dfe-4d68-90e8-bf6d5601b72d.png)
 [1]: https://chrome.google.com/webstore/detail/acnaapkhlmodemlhcemfkdmnmdflfaec</textarea>
-			<div class="msg">分享成功！</div>
-			<div class="about">Designed by <a href="https://coding.net/u/bluishoul" target="_blank">彭博 @ Coding</a><br> Repo:
-				<a href="https://coding.net/bluishoul/coding-plus.git">https://coding.net/bluishoul/coding-plus.git</a></div>
-			<div class="share-button">
-				<a class="button green">分享到冒泡</a>
-			</div>
-		</form>
-	</section>
-	</body>
-	<footer id="footer">
-		<div class="tabs">
-			<div class="tab-item active" data-target="projects">
-				项目
-			</div>
-			<div class="tab-item" data-target="share">
-				分享
-			</div>
-		</div>
-	</footer>
+            <div class="msg">分享成功！</div>
+            <div class="about">Designed by <a href="https://coding.net/u/bluishoul" target="_blank">彭博 @ Coding</a><br> Repo:
+                <a href="https://coding.net/bluishoul/coding-plus.git">https://coding.net/bluishoul/coding-plus.git</a></div>
+            <div class="share-button">
+                <a class="button green">分享到冒泡</a>
+            </div>
+        </form>
+    </section>
+    </body>
+    <footer id="footer">
+        <div class="tabs">
+            <div class="tab-item active" data-target="projects">
+                项目
+            </div>
+            <div class="tab-item" data-target="share">
+                分享
+            </div>
+            <div class="tab-item" data-target="2.0">
+                Coding 2.0
+            </div>
+        </div>
+    </footer>
 </html>

@@ -69,13 +69,14 @@ body.dimmer:before {
 
 #footer .tabs .tab-item {
     display: inline-block;
-    width: 50%;
+    width: 33%;
     height: 100%;
     vertical-align: top;
     float: left;
     box-sizing: border-box;
     text-align: center;
     line-height: 40px;
+    cursor: pointer;
 }
 
 #footer .tabs .tab-item.active {

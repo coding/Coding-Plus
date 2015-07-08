@@ -1,0 +1,34 @@
+*, *:before, *:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-size: 14px;
+    font-family: "Helvetica Neue", Helvetica, Arial, "sans-serif", SimHei;
+    -webkit-font-smoothing: antialiased;
+    background: #F7F6F2;
+}
+
+.content-wrapper {
+    width: 550px;
+    position: relative;
+    margin: auto;
+    -webkit-transition: width .3s ease-in-out;
+    -moz-transition: width .3s ease-in-out;
+    -ms-transition: width .3s ease-in-out;
+    -o-transition: width .3s ease-in-out;
+    transition: width .3s ease-in-out;
+}
+
+@media screen and (max-width: 600px) {
+    .content-wrapper {
+        width: 100%;
+    }
+}
