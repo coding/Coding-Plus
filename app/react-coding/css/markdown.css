@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*markdown 样式*/
 .markdown {
-    font-size: 0.875rem;
+    font-size: 14px;
     line-height: 23px;
     overflow: hidden;
     word-wrap: break-word;
@@ -395,7 +395,7 @@
 }
 
 .markdown table tr {
-    font-size: 0.875rem;
+    font-size: 14px;
 }
 
 .markdown h1 {
